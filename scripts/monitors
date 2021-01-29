@@ -1,0 +1,45 @@
+#!/bin/env fish
+if test $argv = "codeninjas"
+	lowres
+	xrandr \
+	 --dpi 96 \
+	 --output eDP1 --mode 1624x1080 --rate 60 --pos 0x0 \
+	 --output DP1-1 --mode 1680x1050 --rate 60 --pos 1624x0 --primary \
+	 --output DP1-2 --mode 1680x1050 --rate 60 --pos 3304x0 \
+	 --output DP1 --off \
+	 --output DP1-3 --off \
+	 --output HDMI1 --off \
+	 --output VIRTUAL1 --off
+
+	echo "Xft.dpi: 96" | xrdb -merge
+	echo "*.dpi: 96" | xrdb -merge
+end
+if test $argv = "desk"
+	lowres
+	xrandr \
+	 --dpi 96 \
+	 --output eDP1 --mode 1624x1080 --rate 60 --pos 0x0 \
+	 --output DP1-1 --mode 1920x1080 --rate 60 --pos 1624x0 --primary
+	echo "Xft.dpi: 96" | xrdb -merge
+	echo "*.dpi: 96" | xrdb -merge
+end
+if test $argv = "lowres"
+	lowres
+	xrandr \
+	 --dpi 96 \
+	 --output eDP1 --mode 1624x1080
+	echo "Xft.dpi: 96" | xrdb -merge
+	echo "*.dpi: 96" | xrdb -merge
+end
+if test $argv = "deskn"
+	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --pos 0x0 --output DP-1-1-1 --mode 1920x1080 --primary --pos 1920x0 --dpi 96
+	echo "Xft.dpi: 96" | xrdb -merge
+	echo "*.dpi: 96" | xrdb -merge
+end
+if test $argv = "laptop"
+	xrandr \
+	 --dpi 192 \
+	 --output eDP1 --mode 3240x2160
+	echo "Xft.dpi: 192" | xrdb -merge
+	echo "*.dpi: 192" | xrdb -merge
+end

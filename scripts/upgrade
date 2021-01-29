@@ -1,0 +1,4 @@
+#!/bin/env fish
+reflector --verbose --latest 200 --country US --protocol rsync --sort rate | sed -e 's/Server = //' -e '/#/d' -e '/^$/d' | ~/.local/lib/add-json > ~/.config/powerpill/powerpill.json
+sudo cp ~/.config/powerpill/powerpill.json /etc/powerpill/powerpill.json
+pac -Syu

@@ -1,0 +1,3 @@
+# Wayland Setup
+- sway
+- waybar

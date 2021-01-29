@@ -1,0 +1,2 @@
+#!/bin/env fish
+QT_STYLE_OVERRIDE=kvantum QT_QPA_PLATFORMTHEME=qt5ct QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/qt/plugins RIPCORD_STYLE_ENGINE=kvantum /usr/bin/ripcord

@@ -1,0 +1,3 @@
+#!/bin/bash
+pacmd load-module module-ladspa-sink sink_name=denoise_in channels=1 rate=48000 sink_master=$1 label=noise_suppressor_mono plugin=/usr/lib/ladspa/librnnoise_ladspa.so control=50
+pacmd 'update-sink-proplist denoise_in device.description="Denoise Speaker" '

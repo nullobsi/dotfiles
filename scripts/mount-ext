@@ -1,0 +1,7 @@
+#!/usr/bin/fish
+set disk sda
+if not test -z $argv
+	set disk $argv
+end
+sudo cryptsetup open "/dev/"$disk"1" ext
+sudo mount -o rw,ssd,discard=async,compress-force=zstd /dev/mapper/ext /ext

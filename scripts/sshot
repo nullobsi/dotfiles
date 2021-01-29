@@ -1,0 +1,2 @@
+#!/bin/env fish
+grim -g (slurp) - | swappy -f -

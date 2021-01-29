@@ -1,0 +1,4 @@
+configuration {
+	ssh-client: "mosh";
+	ssh-command: "{terminal} {ssh-client} {host} [--ssh='ssh -p {port}']";
+}

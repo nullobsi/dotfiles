@@ -1,0 +1,19 @@
+#!/bin/env fish
+if ls /sys/bus/pci/devices | grep 0000:00:1c.4 > /dev/null
+	set controllerstate (cat /sys/bus/pci/devices/0000:00:1c.4/power_state)
+end
+if ls /sys/bus/pci/devices | grep 0000:02:00.0 > /dev/null
+	set gpustate (cat /sys/bus/pci/devices/0000:02:00.0/power_state)
+end
+
+if test -z $gpustate
+	echo "dGPU is off bus"
+else
+	echo "dGPU in state $gpustate"
+end
+
+if test -z $controllerstate
+	echo "controller is off bus"
+else
+	echo "controller in state $controllerstate"
+end

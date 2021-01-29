@@ -1,0 +1,12 @@
+#!/bin/env fish
+pkill picom
+xrandr --output eDP1 --rotate $argv
+
+set deviceids (xinput | sed '/keyboard/d' | sed -n '/IPTS/p' | grep -oP 'id=\K[0-9]+') $argv[2..-1]
+
+for i in $deviceids
+	xinput --map-to-output $i eDP1
+end
+
+picom -Cb
+

@@ -1,0 +1,2 @@
+#!/bin/env fish
+google-drive-ocamlfuse -label 3cncenters ~/Documents/3CNCenters

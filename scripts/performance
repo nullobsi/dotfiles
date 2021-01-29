@@ -1,0 +1,6 @@
+#!/bin/env fish
+if test -z $argv
+	sudo surface performance get
+else
+	sudo surface performance set $argv
+end

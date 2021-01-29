@@ -1,0 +1,87 @@
+{
+    "aria2": {
+        "args": [
+            "--allow-overwrite=true",
+            "--always-resume=false",
+            "--auto-file-renaming=false",
+            "--check-integrity=true",
+            "--conditional-get=true",
+            "--continue=true",
+            "--file-allocation=none",
+            "--log-level=error",
+            "--max-concurrent-downloads=100",
+            "--max-connection-per-server=5",
+            "--min-split-size=5M",
+            "--remote-time=true",
+            "--show-console-readout=true"
+        ],
+        "path": "/usr/bin/aria2c"
+    },
+    "pacman": {
+        "config": "/etc/pacman.conf",
+        "path": "/usr/bin/pacman"
+    },
+    "pacserve": {
+        "server": null
+    },
+    "powerpill": {
+        "select": true,
+        "reflect databases": false
+    },
+    "reflector": {
+        "args.unused": [
+            "--protocol",
+            "http",
+            "--latest",
+            "50"
+        ]
+    },
+    "rsync": {
+        "args": [
+            "--no-motd",
+            "--progress"
+        ],
+        "db only": false,
+        "path": "/usr/bin/rsync",
+        "servers": [
+            "rsync://mirror.arizona.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.sonic.net/archlinux/$repo/os/$arch",
+            "rsync://arch.hu.fo/archlinux/$repo/os/$arch",
+            "rsync://mirror.lty.me/archlinux/$repo/os/$arch",
+            "rsync://mirrors.cat.pdx.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.kernel.org/archlinux/$repo/os/$arch",
+            "rsync://arch.rrig.gs/arch/$repo/os/$arch",
+            "rsync://mirror.ette.biz/archlinux/$repo/os/$arch",
+            "rsync://mirror.dal10.us.leaseweb.net/archlinux/$repo/os/$arch",
+            "rsync://arch.mirror.constant.com/archlinux/$repo/os/$arch",
+            "rsync://mirror.mia11.us.leaseweb.net/archlinux/$repo/os/$arch",
+            "rsync://mirror.umd.edu/archlinux/$repo/os/$arch",
+            "rsync://mirror.wdc1.us.leaseweb.net/archlinux/$repo/os/$arch",
+            "rsync://mirror.math.princeton.edu/pub/archlinux/$repo/os/$arch",
+            "rsync://plug-mirror.rcac.purdue.edu/archlinux/$repo/os/$arch",
+            "rsync://arch.mirror.square-r00t.net/arch/$repo/os/$arch",
+            "rsync://rsync.gtlib.gatech.edu/archlinux/$repo/os/$arch",
+            "rsync://mirror.cs.vt.edu/archlinux/$repo/os/$arch",
+            "rsync://mirror.sfo12.us.leaseweb.net/archlinux/$repo/os/$arch",
+            "rsync://arlm.tyzoid.com/archlinux/$repo/os/$arch",
+            "rsync://mirror.siena.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.mit.edu/archlinux/$repo/os/$arch",
+            "rsync://iad.mirrors.misaka.one/archlinux/$repo/os/$arch",
+            "rsync://mirror.hackingand.coffee/arch/$repo/os/$arch",
+            "rsync://dfw.mirror.rackspace.com/archlinux/$repo/os/$arch",
+            "rsync://mirrors.lug.mtu.edu/archlinux/$repo/os/$arch",
+            "rsync://mirror.cc.columbia.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.advancedhosters.com/archlinux/$repo/os/$arch",
+            "rsync://distro.ibiblio.org/archlinux/$repo/os/$arch",
+            "rsync://ord.mirror.rackspace.com/archlinux/$repo/os/$arch",
+            "rsync://mirror.es.its.nyu.edu/archlinux/$repo/os/$arch",
+            "rsync://mirror.cs.pitt.edu/archlinux/$repo/os/$arch",
+            "rsync://iad.mirror.rackspace.com/archlinux/$repo/os/$arch",
+            "rsync://mirrors.ocf.berkeley.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.rit.edu/archlinux/$repo/os/$arch",
+            "rsync://mirrors.aggregate.org/archlinux/$repo/os/$arch",
+            "rsync://mirrors.liquidweb.com/archlinux/$repo/os/$arch",
+            "rsync://ftp.osuosl.org/archlinux/$repo/os/$arch"
+        ]
+    }
+}
