@@ -1,5 +1,5 @@
 #!/bin/bash
-pacmd load-module module-null-sink sink_name=mic_denoised_out rate=48000
-pacmd load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_mono plugin=/usr/lib/ladspa/librnnoise_ladspa.so control=50
-pacmd load-module module-loopback source=$1 sink=mic_raw_in channels=1 source_dont_move=true sink_dont_move=true
-pacmd 'update-source-proplist mic_denoised_out.monitor device.description="Noise Suppression Mic" '
+pactl load-module module-null-sink sink_name=mic_denoised_out rate=48000
+pactl load-module module-ladspa-sink sink_name=mic_raw_in sink_master=mic_denoised_out label=noise_suppressor_mono plugin=/usr/lib/ladspa/librnnoise_ladspa.so control=50
+pactl load-module module-loopback source=$1 sink=mic_raw_in channels=1 source_dont_move=true sink_dont_move=true
+pactl 'update-source-proplist mic_denoised_out.monitor device.description="Noise Suppression Mic" '

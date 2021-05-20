@@ -26,7 +26,7 @@
 # check it with "ip a" or "ifconfig -a". it may be wwan0?
 WWAN_DEV=wwan0
 # your cdc_wdm modem location
-CDC_WDM=/dev/cdc-wdm5
+CDC_WDM=/dev/cdc-wdm0
 # this script uses following qmi commands
 QMICLI=/usr/bin/qmicli
 QMI_NETWORK=/usr/bin/qmi-network

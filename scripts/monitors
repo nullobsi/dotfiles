@@ -19,7 +19,7 @@ if test $argv = "desk"
 	xrandr \
 	 --dpi 96 \
 	 --output eDP1 --mode 1624x1080 --rate 60 --pos 0x0 \
-	 --output DP1-1 --mode 1920x1080 --rate 60 --pos 1624x0 --primary
+	 --output DP1-2 --mode 1920x1080 --rate 60 --pos 1624x0 --primary
 	echo "Xft.dpi: 96" | xrdb -merge
 	echo "*.dpi: 96" | xrdb -merge
 end
@@ -32,7 +32,7 @@ if test $argv = "lowres"
 	echo "*.dpi: 96" | xrdb -merge
 end
 if test $argv = "deskn"
-	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --pos 0x0 --output DP-1-1-1 --mode 1920x1080 --primary --pos 1920x0 --dpi 96
+	xrandr --output eDP-1-1 --mode 1920x1080 --rate 60 --pos 0x0 --output DP-1-1-2 --mode 1920x1080 --primary --pos 1920x0 --dpi 96
 	echo "Xft.dpi: 96" | xrdb -merge
 	echo "*.dpi: 96" | xrdb -merge
 end

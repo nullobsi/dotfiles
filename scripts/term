@@ -1,6 +1,6 @@
 #!/usr/bin/fish
-set toexec byobu
+
 if not test -z "$argv"
-	set toexec $argv
+	exec kitty --single-instance $argv
 end
-exec alacritty -e $toexec
+exec kitty --single-instance

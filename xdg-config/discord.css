@@ -28,6 +28,7 @@
     --red-override: var(--red);
     --xbox-green-override: var(--green);
     --streaming-header-bg-override: var(--logo-primary);
+    --spotify-color-override: var(--green);
 
     --away-color-override: var(--orange);
     --online-color-override: var(--green);
@@ -78,6 +79,9 @@
     --background-mentioned: rgba(250,166,26,0.05);
     --background-mentioned-hover: rgba(250,166,26,0.08);
     --background-message-hover: rgba(4,4,5,0.07);
+   
+    
+    
     --scrollbar-thin-thumb: #202225;
     --scrollbar-thin-track: transparent;
     --scrollbar-auto-thumb: #202225;
@@ -178,6 +182,15 @@
     --switch-on-bg: var(--logo-primary);
     --grabber-fill: var(--background-primary);
     --grabber-border: var(--background-tertiary);
+    
+    --background-help-warning: rgba(250,166,26,0.1);
+	--background-help-info: rgba(0,103,224,0.1);
+	--scrollbar-thin-thumb: var(--background-tertiary);
+	--scrollbar-thin-track: transparent;
+	--scrollbar-auto-thumb: var(--background-tertiary);
+	--scrollbar-auto-track: transparent;
+	--scrollbar-auto-scrollbar-color-track: var(--background-primary);
+    --scrollbar-auto-scrollbar-color-thumb: var(--background-secondary);
 }
 
 /* dont touch this*/
@@ -202,12 +215,27 @@
     background-color: var(--logo-primary);
 }
 
+[class^='userPopout'] [class^='headerPlaying'] [class*="body-"],
+[class^='userPopout'] [class^='headerXbox'] [class*="body-"],
+[class^='userPopout'] [class^='headerStreaming'] [class*="body-"],
+[class^='userPopout'] [class^='headerSpotify'] [class*="body-"] {
+    background-color: transparent;
+}
+
+[class^='userPopout'] [class^='headerSpotify'] [class^="bar-"] {
+	background-color: rgba(79,84,92,.16) !important;
+}
+
 [class^='userPopout'] [class^='headerXbox'] {
     background-color: var(--xbox-green-override);
 }
 
 [class^='userPopout'] [class^='headerStreaming'] {
     background-color: var(--streaming-header-bg-override);
+}
+
+[class^='userPopout'] [class^='headerSpotify'] {
+    background-color: var(--spotify-color-override);
 }
 
 [class^='userPopout'] [class^='headerNormal'] [class^='headerName-'] {
@@ -217,6 +245,9 @@
     color: var(--text-muted)
 }
 [class^='userPopout'] [class*='bodyInner'] {
+    background-color: var(--background-primary);
+}
+[class^='userPopout'] [class*='body-'] {
     background-color: var(--background-primary);
 }
 [class^='userPopout'] [class^='footer'] {
@@ -347,25 +378,27 @@
 }
 
 /*status*/
-rect[mask^='url(#svg-mask-status-idle)'],rect[fill^='rgba(250, 166, 26, 1)'] {
+rect[mask='url(#svg-mask-status-idle)'],rect[fill='rgba(250, 166, 26, 1)'],rect[fill="#faa61a"] {
     fill: var(--away-color-override);
 }
-rect[mask^='url(#svg-mask-status-online'],rect[fill^='rgba(67, 181, 129, 1)'] {
+rect[mask='url(#svg-mask-status-online'],rect[fill='rgba(67, 181, 129, 1)'],rect[fill="#43b581"] {
     fill: var(--online-color-override);
 }
-rect[mask^='url(#svg-mask-status-dnd)'],rect[fill^='rgba(240, 71, 71, 1)'] {
+rect[mask='url(#svg-mask-status-dnd)'],rect[fill='rgba(240, 71, 71, 1)'],rect[fill="#f04747"]  {
     fill: var(--dnd-color-override);
 }
-rect[mask^='url(#svg-mask-status-streaming)'],rect[fill^='rgba(89, 54, 149, 1)'] {
+rect[mask='url(#svg-mask-status-streaming)'],rect[fill='rgba(89, 54, 149, 1)'],rect[fill="#593695"] {
     fill: var(--streaming-color-override);
 }
-rect[mask^='url(#svg-mask-status-offline)'] {
+rect[mask='url(#svg-mask-status-offline)'],rect[fill='rgba(116, 127, 141, 1)'],rect[fill="#747f8d"] {
     fill: var(--offline-color-override);
 }
 
+
 [class^='userPopout'] [class^='headerPlaying'] rect[mask^='url(#svg-mask-status'],
 [class^='userPopout'] [class^='headerXbox'] rect[mask^='url(#svg-mask-status'],
-[class^='userPopout'] [class^='headerStreaming'] rect[mask^='url(#svg-mask-status'] {
+[class^='userPopout'] [class^='headerStreaming'] rect[mask^='url(#svg-mask-status'],
+[class^='userPopout'] [class^='headerSpotify'] rect[mask^='url(#svg-mask-status'] {
     fill:var(--background-primary);
 }
 
@@ -459,9 +492,13 @@ rect[mask^='url(#svg-mask-status-offline)'] {
 [class*='lookFilled-'][class*='colorBrand']:hover  {
     background-color:var(--logo-darkened);
 }
-[style*='color: rgb(67, 181, 129)'] {
+[style*=' color: rgb(67, 181, 129)'] {
     color: var(--green-override) !important;
 }
+[style*='background-color: rgb(67, 181, 129)'] {
+    background-color: var(--green-override) !important;
+}
+
 button[class*='colorPrimary-'] {
     color:var(--text-normal) !important;
 }
@@ -511,4 +548,9 @@ button[class*='colorPrimary-'] {
 /* close button */
 [class*='closeButton-'] {
     border-color: var(--background-secondary) !important;
+}
+
+/* now playing */
+[class*='nowPlayingScroller-'] [class*='inset-'] {
+	background-color: var(--background-secondary) !important;
 }

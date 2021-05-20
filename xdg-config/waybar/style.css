@@ -28,15 +28,6 @@ window#waybar.solo {
 }
 */
 
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
@@ -76,7 +67,7 @@ window#waybar.chromium {
 #backlight,
 #network,
 #pulseaudio,
-#custom-media,
+#custom-keyboard,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -84,6 +75,7 @@ window#waybar.chromium {
     padding: 0 10px;
     margin: 0 4px;
     color: #ffffff;
+	
 }
 
 #window,
@@ -205,9 +197,9 @@ label:focus {
 }
 
 #tray {
-    background-color: #268bd2;
-    color: #fdf6e3;
-    border-bottom: 3px solid #2482c5;
+    background-color: #fdf6e3;
+    /*color: #fdf6e3;*/
+    border-bottom: 3px solid #eee8d5;
 
 }
 
@@ -221,6 +213,12 @@ label:focus {
     background-color: #cb4b16;
     border-bottom: 3px solid #bf4615;
     color: #fdf6e3;
+}
+
+#custom-keyboard {
+	background-color: #cb4b16;
+	border-bottom: 3px solid #bf4615;
+	color: #fdf6e3;
 }
 
 #mpd {
