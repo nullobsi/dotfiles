@@ -1,0 +1,9 @@
+[Unit]
+Description=Mailbox synchronization service
+Requires=protonmail-bridge.service
+After=protonmail-bridge.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -Va
+ExecStartPost=/usr/bin/notmuch new

@@ -1,0 +1,11 @@
+[Unit]
+Description=ProtonMail to IMAP/SMTP bridge
+Requires=dbus-org.freedesktop.secrets.service
+After=dbus-org.freedesktop.secrets.service
+
+[Service]
+ExecStart=/usr/bin/protonmail-bridge --no-window
+
+[Install]
+WantedBy=default.target
+
