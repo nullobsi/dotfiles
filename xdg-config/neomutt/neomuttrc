@@ -1,0 +1,68 @@
+# Includes
+source ~/.config/neomutt/gpg.rc
+
+# Maildir config
+set mbox_type=Maildir
+set folder=~/Mail/
+set record=+Sent
+set postponed=+Drafts
+set trash=+Trash
+set mail_check=2
+set sleep_time=0
+
+# Boxes
+set virtual_spoolfile
+virtual-mailboxes "INBOX" "notmuch://?query=folder:INBOX"
+virtual-mailboxes "Archive" "notmuch://?query=folder:Archive"
+virtual-mailboxes "Sent" "notmuch://?query=folder:Sent"
+virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
+
+
+# SMTP
+set smtp_url=smtp://nullobsi@127.0.0.1:1025
+set smtp_pass=`pass protonmail-credentials/smtp-pass`
+set ssl_starttls=yes
+set ssl_force_tls=yes
+
+# Composition
+set realname=nullobsi
+set from="me@nullob.si"
+set forward_format="Fwd: %s"
+set mime_forward                    # when forwarding, include attachments
+set mime_forward_rest               # ''
+set attribution="\n\nOn %d, %n wrote:"  # format of quoting header
+set reply_to                        # reply to Reply to: field
+set reverse_name                    # reply as whomever it was to
+set use_from                        # set the From: header
+set fast_reply                      # don't prompt for forward subject or to/subject on reply
+set include                         # always quote message in reply
+set forward_quote                   # forward messages as quote
+set text_flowed
+set send_charset="utf-8"
+set editor="nano"
+set edit_headers=yes
+
+# Regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+
+# Formats
+set date_format = "%y-%m-%d %T"
+set index_format="%4C %Z %g ┃ %[%Y年%m月%d日 %T] ┃ %s %* ┃ %F <%a> "
+set sort=threads
+set sort_aux=last-date-received
+
+# Mailcap
+set mailcap_path=~/.config/neomutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+# Notmuch
+macro index,pager S "<vfolder-from-query>"
+bind index,pager Y modify-labels
+macro index \Cy "<vfolder-from-query>tag:" "Limit view to tag"
+bind index,pager c change-vfolder
+
+# Alternates
+alternates @nullob.si
+alternates @tbk321.com

@@ -1,0 +1,15 @@
+layer=overlay
+background-color=#fdf6e3
+text-color=#657b83
+border-color=#000000
+border-size=2
+progress-color=over #dc322f
+
+[urgency=low]
+border-color=#586e75
+
+[urgency=normal]
+border-color=#000000
+
+[urgency=high]
+border-color=#cb4b16

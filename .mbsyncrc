@@ -1,0 +1,53 @@
+# Globals
+Create Both
+Expunge Both
+
+# main - Account
+IMAPAccount main
+Host 127.0.0.1
+User nullobsi
+PassCmd "pass show protonmail-credentials/imap-pass"
+SSLType STARTTLS
+Port 1143
+
+# main - Remote
+IMAPStore main-remote
+Account main
+
+# main - Local
+MaildirStore main-local
+Path ~/Mail/
+Inbox ~/Mail/INBOX
+Subfolders Verbatim
+
+# main - Channels
+
+# main - Inbox
+Channel main-inbox
+Far :main-remote:"INBOX"
+Near :main-local:INBOX
+
+# main - Archive
+Channel main-archive
+Far :main-remote:"Archive"
+Near :main-local:Archive
+
+# main - Drafts
+Channel main-drafts
+Far :main-remote:"Drafts"
+Near :main-local:Drafts
+
+# main - Sent
+Channel main-sent
+Far :main-remote:"Sent"
+Near :main-local:Sent
+
+# main - Span
+Channel main-spam
+Far :main-remote:"Spam"
+Near :main-local:Spam
+
+# main - Trash
+Channel main-trash
+Far :main-remote:"Trash"
+Near :main-local:Trash
