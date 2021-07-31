@@ -9,10 +9,12 @@ User nullobsi
 PassCmd "pass show protonmail-credentials/imap-pass"
 SSLType STARTTLS
 Port 1143
+CertificateFile ~/.config/protonmail/bridge/cert.pem
 
 # main - Remote
 IMAPStore main-remote
 Account main
+PathDelimiter /
 
 # main - Local
 MaildirStore main-local
@@ -51,3 +53,8 @@ Near :main-local:Spam
 Channel main-trash
 Far :main-remote:"Trash"
 Near :main-local:Trash
+
+# main - GitHub
+Channel main-gh
+Far :main-remote:"Folders/GitHub"
+near :main-local:GitHub

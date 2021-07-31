@@ -1,5 +1,10 @@
 # Includes
 source ~/.config/neomutt/gpg.rc
+source ~/.config/neomutt/sidebar.rc
+source ~/.config/neomutt/boxes.rc
+
+# Hooks
+shutdown-hook "exec mbsync -a"
 
 # Maildir config
 set mbox_type=Maildir
@@ -10,19 +15,12 @@ set trash=+Trash
 set mail_check=2
 set sleep_time=0
 
-# Boxes
-set virtual_spoolfile
-virtual-mailboxes "INBOX" "notmuch://?query=folder:INBOX"
-virtual-mailboxes "Archive" "notmuch://?query=folder:Archive"
-virtual-mailboxes "Sent" "notmuch://?query=folder:Sent"
-virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
-
-
 # SMTP
-set smtp_url=smtp://nullobsi@127.0.0.1:1025
+set smtp_url=smtp://me@nullob.si@127.0.0.1:1025
 set smtp_pass=`pass protonmail-credentials/smtp-pass`
 set ssl_starttls=yes
 set ssl_force_tls=yes
+# set ssl_ca_certificates_file=~/.config/protonmail/bridge/cert.pem
 
 # Composition
 set realname=nullobsi
@@ -62,6 +60,9 @@ macro index,pager S "<vfolder-from-query>"
 bind index,pager Y modify-labels
 macro index \Cy "<vfolder-from-query>tag:" "Limit view to tag"
 bind index,pager c change-vfolder
+
+# Pager
+set pager_index_lines = 10
 
 # Alternates
 alternates @nullob.si
