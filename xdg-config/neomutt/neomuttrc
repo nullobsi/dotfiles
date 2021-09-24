@@ -8,7 +8,7 @@ shutdown-hook "exec mbsync -a"
 
 # Maildir config
 set mbox_type=Maildir
-set folder=~/Mail/
+set folder=~/メール/
 set record=+Sent
 set postponed=+Drafts
 set trash=+Trash

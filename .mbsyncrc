@@ -18,8 +18,8 @@ PathDelimiter /
 
 # main - Local
 MaildirStore main-local
-Path ~/Mail/
-Inbox ~/Mail/INBOX
+Path ~/メール/
+Inbox ~/メール/INBOX
 Subfolders Verbatim
 
 # main - Channels

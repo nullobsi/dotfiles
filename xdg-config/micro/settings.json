@@ -1,0 +1,12 @@
+{
+    "backupdir": "~/.local/micro/backups",
+    "colorcolumn": 78,
+    "colorscheme": "solarized-light",
+    "diffgutter": true,
+    "rmtrailingws": true,
+    "scrollbar": true,
+    "softwrap": true,
+    "statusformatl": "$(filename) $(modified)  $(line):$(col) $(status.paste)  $(opt:filetype)",
+    "statusformatr": "$(opt:fileformat), $(opt:encoding)",
+    "wordwrap": true
+}

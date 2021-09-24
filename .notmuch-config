@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/nullobsi/Mail
+path=/home/nullobsi/メール
 
 # User configuration
 #
@@ -31,7 +31,7 @@ path=/home/nullobsi/Mail
 [user]
 name=nullobsi
 primary_email=me@nullob.si
-other_email=jpzen@outlook.com;me@tbk321.com;
+other_email=jpzen@outlook.com;
 
 # Configuration for "notmuch new"
 #
