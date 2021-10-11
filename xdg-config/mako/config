@@ -1,4 +1,5 @@
 layer=overlay
+group-by=app-name,app-icon
 background-color=#fdf6e3
 text-color=#657b83
 border-color=#000000
@@ -13,3 +14,9 @@ border-color=#000000
 
 [urgency=high]
 border-color=#cb4b16
+
+[mode=do-not-disturb]
+invisible=1
+
+[mode=video]
+layer=top

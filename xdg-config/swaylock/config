@@ -2,3 +2,4 @@ show-failed-attempts
 show-keyboard-layout
 image=~/.bg
 tiling
+daemonize
