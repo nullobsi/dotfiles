@@ -1,0 +1,145 @@
+/*
+ * vim: ft=less
+ */
+
+@define-color border-color rgb(0, 0, 0);
+@define-color bg #fdf6e3;
+@define-color bg-hover #eee8d5;
+@define-color bg-focus rgba(203, 75, 22, 0.6);
+@define-color bg-selected #cb4b16;
+
+.notification-row {
+  outline: none;
+}
+.notification-row:focus {
+  background: @bg-focus;
+}
+
+.notification {
+  border-radius: 0px;
+  margin: 10px 10px;
+  padding: 0;
+}
+
+.notification-content {
+  background: transparent;
+  padding: 6px;
+  border-radius: 0px;
+}
+
+.close-button {
+  background: #fdf6e3;
+  color: #586e75;
+  text-shadow: none;
+  padding: 0;
+}
+.close-button:hover {
+  background: #dc322f;
+  color: #fdf6e3;
+  transition: all 0.15s ease-in-out;
+}
+
+.notification-default-action,
+.notification-action {
+  padding: 4px;
+  box-shadow: none;
+  background: @bg;
+  border: 2px solid @border-color;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  background: @bg-hover;
+}
+
+.notification-default-action {
+  border-radius: 0px;
+}
+
+/* When alternative actions are visible */
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  border-right: none;
+}
+
+/* add bottom border radius to eliminate clipping */
+.notification-action:first-child {
+  border-bottom-left-radius: 0px;
+}
+.notification-action:last-child {
+  border-bottom-right-radius: 0px;
+  border-right: 2px solid @border-color;
+}
+
+.image {
+}
+
+.body-image {
+  margin-top: 6px;
+  background-color: white;
+  border-radius: 0px;
+}
+
+.summary {
+  color: #586e75;
+  text-shadow: none;
+}
+
+.time {
+  color: #586e75;
+  text-shadow: none;
+}
+
+.body {
+  background: transparent;
+  color: #586e75;
+  text-shadow: none;
+}
+
+.top-action-title {
+  color: #586e75;
+  text-shadow: none;
+}
+
+.control-center-clear-all {
+  color: #586e75;
+  text-shadow: none;
+  background: @bg;
+/*  border: 1px solid @border-color; */
+  box-shadow: none;
+  border-radius: 0px;
+}
+.control-center-clear-all:hover {
+  background: @bg-hover;
+}
+
+.control-center-dnd {
+  border-radius: 3px;
+  background: @bg;
+  border: 1px solid @border-color;
+  box-shadow: none;
+}
+
+.control-center-dnd:checked {
+  background: @bg-selected;
+}
+.control-center-dnd slider {
+  background: @bg-hover;
+}
+
+.control-center {
+  background: rgba(238, 232, 213, 0.7);
+}
+.control-center-list {
+  background: transparent;
+}
+
+.floating-notifications {
+  background: transparent;
+}

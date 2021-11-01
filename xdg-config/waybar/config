@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode" ],
     "modules-center": ["sway/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "custom/keyboard", "pulseaudio", "network", "cpu", "memory", "backlight", "battery#bat1", "battery#bat2", "clock", "tray"],
+    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery#bat1", "battery#bat2", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -27,6 +27,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
+		"server": "/run/user/nullobsi/mpd.S",
 		//"max-length": 20,
 		//"min-length": 20,
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
@@ -83,7 +84,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{:3}% "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -95,7 +96,7 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
+        "format": "{percent:3}% {icon}",
         "format-icons": ["", ""]
     },
     "battery#bat1": {
@@ -105,9 +106,9 @@
             "critical": 15
         },
         
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format": "{capacity:3}% {icon}",
+        "format-charging": "{capacity:3}% ",
+        "format-plugged": "{capacity:3}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -119,9 +120,9 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}% ",
-		"format-plugged": "{capacity}% ",
+		"format": "{capacity:3}% {icon}",
+		"format-charging": "{capacity:3}% ",
+		"format-plugged": "{capacity:3}% ",
 		"format-alt": "{time} {icon}",
 		"format-icons": ["", "", "", "", ""]
     },
