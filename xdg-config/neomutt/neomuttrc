@@ -16,15 +16,14 @@ set mail_check=2
 set sleep_time=0
 
 # SMTP
-set smtp_url=smtp://me@nullob.si@127.0.0.1:1025
-set smtp_pass=`pass protonmail-credentials/smtp-pass`
+set my_pass_nullobsi="`pass token/migadu.com/me@nullob.si`"
+set my_pass_personal="`pass token/migadu.com/jp@zendejas.family`"
 set ssl_starttls=yes
 set ssl_force_tls=yes
 # set ssl_ca_certificates_file=~/.config/protonmail/bridge/cert.pem
 
 # Composition
-set realname=nullobsi
-set from="me@nullob.si"
+
 set forward_format="Fwd: %s"
 set mime_forward                    # when forwarding, include attachments
 set mime_forward_rest               # ''
@@ -37,7 +36,7 @@ set include                         # always quote message in reply
 set forward_quote                   # forward messages as quote
 set text_flowed
 set send_charset="utf-8"
-set editor="nano"
+set editor="$EDITOR"
 set edit_headers=yes
 
 # Regex
@@ -56,7 +55,7 @@ auto_view text/html
 alternative_order text/plain text/html
 
 # Notmuch
-macro index,pager S "<vfolder-from-query>"
+macro index,pager \Cf "<vfolder-from-query>"
 bind index,pager Y modify-labels
 macro index \Cy "<vfolder-from-query>tag:" "Limit view to tag"
 bind index,pager c change-vfolder
@@ -67,3 +66,12 @@ set pager_index_lines = 10
 # Alternates
 alternates @nullob.si
 alternates @tbk321.com
+
+# Accounts
+source ~/.config/neomutt/account-nullobsi
+
+folder-hook nullob.si* source ~/.config/neomutt/account-nullobsi
+folder-hook personal* source ~/.config/neomutt/account-personal
+
+# Sync
+macro index S "<shell-escape>mbsync -Va<enter><shell-escape>notmuch new<enter>" "Sync Boxes"

@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode" ],
     "modules-center": ["sway/window"],
-    "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery#bat1", "battery#bat2", "clock", "tray"],
+    "modules-right": ["mpd", "custom/keyboard", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery#bat1", "battery#bat2", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -72,8 +72,8 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-		// "locale": "en_US.UTF-8",
+        "timezone": "America/Los_Angeles",
+		// "locale": "es_MX.UTF-8",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d} ",
         "interval": 1,
@@ -105,7 +105,7 @@
             "warning": 30,
             "critical": 15
         },
-        
+
         "format": "{capacity:3}% {icon}",
         "format-charging": "{capacity:3}% ",
         "format-plugged": "{capacity:3}% ",

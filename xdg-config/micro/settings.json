@@ -1,7 +1,7 @@
 {
     "backupdir": "~/.local/micro/backups",
     "colorcolumn": 78,
-    "colorscheme": "solarized-light",
+    "colorscheme": "gruvbox-light",
     "diffgutter": true,
     "rmtrailingws": true,
     "scrollbar": true,

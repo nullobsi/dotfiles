@@ -1,5 +1,5 @@
-set pgp_default_key="0x93F45D8FC475D302"
-set pgp_sign_as="0x40CEDD6986F3B143"
+set pgp_default_key="0x1F0BCBA69E7D974D"
+set pgp_sign_as="0x342661C4F68CD06D"
 
 
 set crypt_use_gpgme=yes

@@ -10,13 +10,13 @@ set sidebar_visible = yes
 # Note: Some characters, e.g. Chinese, take up two columns each.
 set sidebar_width = 20
 # Should the mailbox paths be abbreviated?
-set sidebar_short_path = no
+set sidebar_short_path = yes
 # Number of top-level mailbox path subdirectories to truncate for display
 set sidebar_component_depth = 0
 # When abbreviating mailbox path names, use any of these characters as path
 # separators. Only the part after the last separators will be shown.
 # For file folders '/' is good. For IMAP folders, often '.' is useful.
-set sidebar_delim_chars = '/.'
+set sidebar_delim_chars = '/'
 # If the mailbox path is abbreviated, should it be indented?
 set sidebar_folder_indent = yes
 # Indent mailbox paths with this string.
@@ -54,11 +54,11 @@ set sidebar_sort_method = 'unsorted'
 # FUNCTIONS – shown with an example mapping
 # --------------------------------------------------------------------------
 # Move the highlight to the previous mailbox
-bind index,pager \Ck sidebar-prev
+bind index,pager '[' sidebar-prev
 # Move the highlight to the next mailbox
-bind index,pager \Cj sidebar-next
+bind index,pager ']' sidebar-next
 # Open the highlighted mailbox
-bind index,pager \Co sidebar-open
+bind index,pager '#' sidebar-open
 # Move the highlight to the previous page
 # This is useful if you have a LOT of mailboxes.
 bind index,pager <F3> sidebar-page-up

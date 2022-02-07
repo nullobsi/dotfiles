@@ -2,11 +2,11 @@
  * vim: ft=less
  */
 
-@define-color border-color rgb(0, 0, 0);
-@define-color bg #fdf6e3;
-@define-color bg-hover #eee8d5;
-@define-color bg-focus rgba(203, 75, 22, 0.6);
-@define-color bg-selected #cb4b16;
+@define-color border-color #bdae93;
+@define-color bg #f2e5bc;
+@define-color bg-hover #d5c4a1;
+@define-color bg-focus rgba(214, 93, 14, 0.6);
+@define-color bg-selected #af3a03;
 
 .notification-row {
   outline: none;
@@ -34,8 +34,8 @@
   padding: 0;
 }
 .close-button:hover {
-  background: #dc322f;
-  color: #fdf6e3;
+  background: #cc241d;
+  color: @bg;
   transition: all 0.15s ease-in-out;
 }
 
@@ -92,23 +92,23 @@
 }
 
 .time {
-  color: #586e75;
+  color: #928374;
   text-shadow: none;
 }
 
 .body {
   background: transparent;
-  color: #586e75;
+  color: #928374;
   text-shadow: none;
 }
 
 .top-action-title {
-  color: #586e75;
+  color: #928374;
   text-shadow: none;
 }
 
 .control-center-clear-all {
-  color: #586e75;
+  color: #928374;
   text-shadow: none;
   background: @bg;
 /*  border: 1px solid @border-color; */
@@ -134,7 +134,7 @@
 }
 
 .control-center {
-  background: rgba(238, 232, 213, 0.7);
+  background: rgba(242, 229, 188, 0.7);
 }
 .control-center-list {
   background: transparent;

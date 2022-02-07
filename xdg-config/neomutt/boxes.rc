@@ -1,9 +1,23 @@
 set virtual_spoolfile
-virtual-mailboxes "INBOX" "notmuch://?query=folder:INBOX"
-virtual-mailboxes "GitHub" "notmuch://?query=folder:GitHub"
-virtual-mailboxes "Archive" "notmuch://?query=folder:Archive"
-virtual-mailboxes "Sent" "notmuch://?query=folder:Sent"
-virtual-mailboxes "Drafts" "notmuch://?query=folder:Drafts"
-virtual-mailboxes "Trash" "notmuch://?query=folder:Trash"
-virtual-mailboxes "Spam" "notmuch://?query=folder:Spam"
+
+virtual-mailboxes "nullob.si" "notmuch://?query=folder:nullob.si"
+`get-mailboxes nullob.si`
+
+#virtual-mailboxes "INBOX" "notmuch://?query=folder:nullob.si/INBOX"
+#virtual-mailboxes "GitHub" "notmuch://?query=folder:nullob.si/GitHub"
+#virtual-mailboxes "Archive" "notmuch://?query=folder:nullob.si/Archive"
+#virtual-mailboxes "Sent" "notmuch://?query=folder:nullob.si/Sent"
+#virtual-mailboxes "Drafts" "notmuch://?query=folder:nullob.si/Drafts"
+#virtual-mailboxes "Trash" "notmuch://?query=folder:nullob.si/Trash"
+#virtual-mailboxes "Junk" "notmuch://?query=folder:nullob.si/Junk"
+
+virtual-mailboxes "personal" "notmuch://?query=folder:personal"
+`get-mailboxes personal`
+#virtual-mailboxes "INBOX" "notmuch://?query=folder:personal/INBOX"
+#virtual-mailboxes "Archive" "notmuch://?query=folder:personal/Archive"
+#virtual-mailboxes "Sent" "notmuch://?query=folder:personal/Sent"
+#virtual-mailboxes "Drafts" "notmuch://?query=folder:personal/Drafts"
+#virtual-mailboxes "Trash" "notmuch://?query=folder:personal/Trash"
+#virtual-mailboxes "Junk" "notmuch://?query=folder:personal/Junk"
+
 

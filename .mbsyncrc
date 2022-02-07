@@ -4,12 +4,11 @@ Expunge Both
 
 # main - Account
 IMAPAccount main
-Host 127.0.0.1
-User nullobsi
-PassCmd "pass show protonmail-credentials/imap-pass"
-SSLType STARTTLS
-Port 1143
-CertificateFile ~/.config/protonmail/bridge/cert.pem
+Host imap.migadu.com
+User me@nullob.si
+PassCmd "pass show token/migadu.com/me@nullob.si"
+SSLType IMAPS
+Port 993
 
 # main - Remote
 IMAPStore main-remote
@@ -18,43 +17,37 @@ PathDelimiter /
 
 # main - Local
 MaildirStore main-local
-Path ~/メール/
-Inbox ~/メール/INBOX
+Path ~/メール/nullob.si/
+Inbox ~/メール/nullob.si/INBOX
 Subfolders Verbatim
 
-# main - Channels
+# personal - Account
+IMAPAccount pers
+Host imap.migadu.com
+User jp@zendejas.family
+PassCmd "pass show token/migadu.com/jp@zendejas.family"
+SSLType IMAPS
+Port 993
 
-# main - Inbox
-Channel main-inbox
-Far :main-remote:"INBOX"
-Near :main-local:INBOX
+# personal - Remote
+IMAPStore pers-remote
+Account pers
+PathDelimiter /
 
-# main - Archive
-Channel main-archive
-Far :main-remote:"Archive"
-Near :main-local:Archive
+# personal - Local
+MaildirStore pers-local
+Path ~/メール/personal/
+Inbox ~/メール/personal/INBOX
+Subfolders Verbatim
 
-# main - Drafts
-Channel main-drafts
-Far :main-remote:"Drafts"
-Near :main-local:Drafts
+Channel main
+Far :main-remote:
+Near :main-local:
+Patterns *
+SyncState *
 
-# main - Sent
-Channel main-sent
-Far :main-remote:"Sent"
-Near :main-local:Sent
-
-# main - Span
-Channel main-spam
-Far :main-remote:"Spam"
-Near :main-local:Spam
-
-# main - Trash
-Channel main-trash
-Far :main-remote:"Trash"
-Near :main-local:Trash
-
-# main - GitHub
-Channel main-gh
-Far :main-remote:"Folders/GitHub"
-near :main-local:GitHub
+Channel personal
+Far :pers-remote:
+Near :pers-local:
+Patterns *
+SyncState *

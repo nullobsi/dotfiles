@@ -1,0 +1,7 @@
+set record=+$ACCT/Sent
+set postponed=+$ACCT/Drafts
+set trash=+$ACCT/Trash
+set smtp_url=$SMTP
+set smtp_pass="$my_pass"
+set realname=nullobsi
+set from="me@email.com"
