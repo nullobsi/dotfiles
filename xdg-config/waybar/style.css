@@ -9,7 +9,7 @@
 
 window#waybar {
     background-color: #f2e5bc;
-    border-bottom: 3px solid #ebdbb2;
+    border-bottom: 3px solid #d5c4a1;
     color: #3c3836;
     transition-property: background-color;
     transition-duration: .5s;
@@ -38,8 +38,8 @@ window#waybar.solo {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    background: #ebdbb2;
-    box-shadow: inset 0 -3px #d5c4a1;
+    background: #d5c4a1;
+    box-shadow: inset 0 -3px #bdae93;
 }
 
 #workspaces button.focused {
@@ -101,7 +101,7 @@ window#waybar.solo {
 
 #battery {
     background-color: #f2e5bc;
-    border-bottom: 3px solid #ebdbb2;
+    border-bottom: 3px solid #d5c4a1;
     color: #657b83;
 }
 
@@ -115,7 +115,7 @@ window#waybar.solo {
     to {
         background-color: #f2e5bc;
         color: #657b83;
-		border-bottom: 3px solid #ebdbb2;
+		border-bottom: 3px solid #d5c4a1;
     }
 }
 
@@ -199,7 +199,7 @@ label:focus {
 #tray {
     background-color: #f2e5bc;
     /*color: #f2e5bc;*/
-    border-bottom: 3px solid #ebdbb2;
+    border-bottom: 3px solid #d5c4a1;
 
 }
 

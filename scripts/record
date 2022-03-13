@@ -1,0 +1,30 @@
+#!/bin/fish
+
+swaymsg -t get_outputs | jq .[].name -r | read -a OUTPUTS
+set -a OUTPUTS カスタム
+
+printf "%s\n" $OUTPUTS | rofi -i -dmenu -only-match -p "何を？" | read OUTPUT
+ 
+date +"%Y-%m-%d %H-%M-%S" | rofi -i -dmenu -p "保存先？" | read FILENAME
+
+printf "Y\nN" | rofi -i -only-match -dmenu -p "オーディオも？" | read AUDIO
+
+if test "$AUDIO" = "Y"
+	set AUDIO "-a"
+else
+	set AUDIO ""
+end
+
+set FILENAME $HOME/ビデオ/$FILENAME.mp4
+
+if test "$OUTPUT" = "カスタム"
+	wf-recorder $AUDIO -g (slurp) -f "$FILENAME" 
+else
+	wf-recorder $AUDIO -o "$OUTPUT" -f "$FILENAME" 
+end
+
+if test $status -eq 0
+	notify-send "画面レコードを保存しました"
+else
+	notify-send "レコードに失敗しました"
+end

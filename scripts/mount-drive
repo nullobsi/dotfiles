@@ -1,2 +1,0 @@
-#!/usr/bin/fish
-google-drive-ocamlfuse -label default ~/Documents/Drive
