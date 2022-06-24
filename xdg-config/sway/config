@@ -1,16 +1,20 @@
-#output eDP-1 pos 0 0 res 3240x2160 scale 2 subpixel rgb scale_filter nearest
+output eDP-1 pos 0 0 res 3240x2160 scale 2 subpixel rgb scale_filter nearest
 #output DP-2 pos 1620 0 res 1920x1080 scale 1 subpixel rgb
-exec "systemctl --user import-environment XDG_CURRENT_DESKTOP DISPLAY WAYLAND_DISPLAY"
+# exec "systemctl --user import-environment XDG_CURRENT_DESKTOP DISPLAY WAYLAND_DISPLAY"
+exec ~/.local/bin/update-display
 exec "dbus-update-activation-environment --all"
+exec swaylock
+# exec waybar
+
 # waybar
 bar {
 	swaybar_command waybar
 }
 
 # set options for xwayland
-xwayland scale 2
-seat seat0 xcursor_theme "Numix-Cursor-Light" 24 
-exec xrdb -merge ~/.Xresources
+# xwayland scale 2
+seat seat0 xcursor_theme "Numix-Cursor-Light" 24
+# exec xrdb -merge ~/.Xresources
 
 #inputs
 input type:touchpad {
@@ -22,10 +26,6 @@ input type:touchpad {
 	natural_scroll enabled
 	scroll_method two_finger
 	tap enabled
-}
-
-input "1133:49980:Logitech_G512_RGB_MECHANICAL_GAMING_KEYBOARD" {
-	xkb_layout jp
 }
 
 input type:touch {
@@ -40,57 +40,44 @@ input type:tablet_pad {
 	map_to_output eDP-1
 }
 
+# network management
+exec nm-applet --indicator
+exec blueman-applet
+
 # display management
-exec clight
-exec clight-gui --tray
-exec kanshi
+# exec clight
+# exec clight-gui --tray
+# exec kanshi
 
 # policykit
 exec lxqt-policykit-agent
 
 # file sync
-exec "sleep 10; megasync-wl"
+exec "sleep 10; megasync"
 # keyring
 # exec gnome-keyring-daemon -r -d -c secrets
 
 # notifications
-exec mako
+exec swaync
 
 # input utilities
-exec squeekboard
-exec touchegg
-exec DISPLAY= fcitx5
-exec copyq
+# exec squeekboard
+# exec touchegg
+exec fcitx5
+# exec copyq
 
-# define solarized colors
-set $base00 #fdf6e3
-set $base01 #eee8d5
-set $base02 #93a1a1
-set $base03 #839496
-set $base04 #657b83
-set $base05 #586e75
-set $base06 #073642
-set $base07 #002b36
-set $base08 #dc322f
-set $base09 #cb4b16
-set $base0A #b58900
-set $base0B #859900
-set $base0C #2aa198
-set $base0D #268bd2
-set $base0E #6c71c4
-set $base0F #d33682
 
 # set theme for GTK apps
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'NumixSolarizedLightOrange'
+    gsettings set $gnome-schema gtk-theme 'oomox-Gruvbox Light'
     gsettings set $gnome-schema icon-theme 'Numix-Light'
     gsettings set $gnome-schema cursor-theme 'Numix-Cursor-Light'
     gsettings set $gnome-schema font-name 'system-ui 12'
 }
 
 # background
-output * bg ~/solarizedlightstripes.png tile
+output * bg ~/.bg tile
 
 # Super as mod key
 set $mod Mod4
@@ -98,13 +85,7 @@ set $mod Mod4
 font pango:system-ui 10
 
 # idle locker
-exec swayidle -w timeout 120 'lock' \
-				 timeout 300 'swaymsg "output * dpms off"' \
-				     resume 'swaymsg "output * dpms on"' \
-				 before-sleep 'lock' \
-				 lock 'lock' \
-				 unlock 'pkill swaylock' \
-				 idlehint 120
+exec swayidle -w
 
 # volume keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -116,7 +97,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec term
+bindsym $mod+Return exec kitty --single-instance
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -129,7 +110,7 @@ bindsym $mod+Shift+r exec record
 bindsym $mod+Shift+w exec killall -s SIGINT wf-recorder
 
 # program launcher
-bindsym $mod+d exec rofi -normal-window -show run
+bindsym $mod+d exec rofi -show run -modi run,ssh,drun
 
 # scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -161,6 +142,7 @@ bindsym $mod+Shift+Right move right
 # splits
 bindsym $mod+h splith
 bindsym $mod+v splitv
+bindsym $mod+a focus parent
 
 # fullscreen
 bindsym $mod+f fullscreen toggle
@@ -175,10 +157,12 @@ bindsym $mod+e layout toggle split
 
 # floating windows
 bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Ctrl+space focus mode_toggle
 
 # lock
 bindsym $mod+Mod1+l exec loginctl lock-session
+
+bindsym $mod+n exec swaync-client -t
 
 # workspaces
 set $ws1 "1"
@@ -241,13 +225,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# passthough
+mode passthrough {
+	bindsym $mod+Escape mode default
+}
+
+bindsym $mod+Escape mode passthrough
+
+set $green  #98971a
+set $dgreen #79740e
+set $red    #cc241d
+set $dred   #9d0006
+set $ornge  #d65d0e
+set $dornge #af3a03
+set $bg     #f2e5bc
+set $fg     #3c3836
+set $bg3    #bdae93
+set $gray   #928374
 # colors
-client.focused          #000000 $base09 $base00 $base09 #000000
-client.focused_inactive #000000 $base05 $base00 $base03 #000000
-client.unfocused        #000000 $base00 $base05 $base01 #000000
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+client.focused          $ornge  $ornge  $bg     $ornge  $green
+client.focused_inactive $dgreen $dgreen $bg     $dornge $dgreen
+client.unfocused        $bg3    $bg     $fg     $gray   $bg3
+client.urgent           $red    $dred   $bg     $dornge $red
+client.background       $bg
 
 # gaps
 gaps inner 10
@@ -257,7 +257,7 @@ gaps outer 0
 bindsym XF86MonBrightnessUp exec backlight -inc 0.1
 bindsym XF86MonBrightnessDown exec backlight -dec 0.1
 
-# border 
+# border
 default_border pixel 2
 
 # media keys
@@ -266,10 +266,14 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+bindsym $mod+End exec reset-fcitx
+
 # per-app
 for_window [app_id="copyq"] floating enable
 #for_window ["Ripcord" title="Emoji"] floating enable
 for_window [class="Rofi"] floating enable
-
+for_window [app_id="lxqt-policykit-agent"] floating enable
+for_window [app_id="xdg-desktop-portal-kde"] floating enable
 for_window [app_id="flameshot"] fullscreen enable global
 for_window [app_id="nz.co.mega.megasync"] floating enable
+for_window [class="MEGAsync"] floating enable
