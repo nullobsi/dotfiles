@@ -27,7 +27,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
-		"server": "/run/user/nullobsi/mpd.S",
+		"server": "localhost", //"/run/user/nullobsi/mpd.S",
 		//"max-length": 20,
 		//"min-length": 20,
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
